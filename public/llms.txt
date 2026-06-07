@@ -1,0 +1,40 @@
+# Accurai
+
+> Accurai helps small businesses test, improve, and monitor AI chatbots, assistants, and agents. Two connected tracks: AI Answer Accuracy (what your AI says) and Agentic AI Safety (what your AI agents can do). Based in Oakville, Ontario, serving small businesses across Canada.
+
+Accurai is a practical AI quality-control service for small businesses, not vague AI consulting. Every engagement produces clear, evidence-based findings: an accuracy score, an issue list with examples, and a plain-English plan. Founder: Zuhair Usmani.
+
+## Services
+- AI Answer Accuracy Audit — tests a chatbot or AI assistant with realistic customer questions and returns an accuracy score, issue list, and improvement plan. From $299 (founding pricing).
+- AI Knowledge Base Cleanup — organizes FAQs, services, policies, and pricing into a reliable source of truth. From $1,000.
+- AI Chatbot QA Launch Test — pre-launch QA across common, edge-case, and risky customer questions, with a go-live recommendation. From $1,500.
+- Monthly AI Monitoring — recurring retesting and score tracking so quality does not drift after updates. From $300/month.
+- Agentic AI Safety & Security Readiness Audit — reviews AI agents and automations for permissions, approval gates, prompt-injection exposure, data risks, and logging. Readiness Check from $499; Full Audit from $1,500.
+
+## How scoring works
+Every AI answer is scored on six dimensions: Accuracy, Completeness, Consistency, Safety, Escalation, and Brand Tone. A typical audit uses 75 to 100 customer-style questions.
+
+## Industries served
+Home services (HVAC, plumbing, roofing, electrical, restoration), education and tutoring, and real estate and property services.
+
+## Free resources
+- AI Chatbot QA Checklist (PDF)
+- 75 Questions to Ask Your Business Chatbot (PDF)
+- Agentic AI Safety Checklist (PDF)
+Available at https://accurai.ca/#/resources
+
+## Key pages
+- Home: https://accurai.ca/
+- Services: https://accurai.ca/#/services
+- Agentic AI Safety: https://accurai.ca/#/services/agentic-ai-safety
+- Pricing: https://accurai.ca/#/pricing
+- Process: https://accurai.ca/#/process
+- Blog: https://accurai.ca/#/blog
+- Resources: https://accurai.ca/#/resources
+- About: https://accurai.ca/#/about
+- Contact: https://accurai.ca/#/contact
+
+## Contact
+Email: hello@accurai.ca
+Phone: (905) 467-5002
+Location: Oakville, Ontario, Canada

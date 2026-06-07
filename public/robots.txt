@@ -1,0 +1,26 @@
+# Accurai — robots.txt
+User-agent: *
+Allow: /
+
+# AI / LLM crawlers are welcome to read and cite Accurai content.
+# (Change "Allow" to "Disallow" for any bot you wish to block.)
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://accurai.ca/sitemap.xml

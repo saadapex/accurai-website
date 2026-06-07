@@ -1,0 +1,14 @@
+{
+  "name": "accurai-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Accurai marketing site — single-file SPA prerendered to static HTML for SEO.",
+  "scripts": {
+    "build": "node prerender.mjs",
+    "preview": "npx serve dist"
+  },
+  "dependencies": {
+    "jsdom": "^24.1.0"
+  }
+}
