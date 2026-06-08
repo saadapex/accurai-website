@@ -62,7 +62,7 @@ h1,h2,h3,h4{font-family:var(--font);font-weight:800;line-height:1.06;letter-spac
 .btn-primary:hover{transform:translateY(-2px);background:#0a4a5e;box-shadow:0 16px 30px -12px rgba(7,59,76,.8)}
 .btn-accent{background:var(--orange);color:#fff;box-shadow:0 10px 24px -10px rgba(249,115,22,.6)}
 .btn-accent:hover{transform:translateY(-2px);box-shadow:0 16px 32px -12px rgba(249,115,22,.7)}
-.btn-ghost{background:var(--panel);color:var(--navy);border-color:var(--line)}
+.btn-ghost{background:var(--ice);color:var(--navy);border-color:rgba(7,59,76,.22)}
 .btn-ghost:hover{border-color:var(--navy);transform:translateY(-2px)}
 .btn-light{background:#fff;color:var(--navy)}
 .btn-light:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
@@ -173,6 +173,7 @@ h2.display{font-size:clamp(2rem,4.2vw,3.1rem)}
 
 /* bento */
 .bento{display:grid;grid-template-columns:1.4fr 1fr;grid-auto-rows:1fr;gap:22px}
+.bento-big{grid-row:span 2}
 .bento-cell{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:30px;position:relative;overflow:hidden}
 .bento-cell.dark{background:var(--navy);color:#fff}
 .bento-cell.dark h3{color:#fff}
@@ -480,6 +481,7 @@ footer>.container{position:relative;z-index:1}
 /* responsive */
 @media(max-width:960px){
   .browser-body,.split,.howrow,.bento{grid-template-columns:1fr}
+  .bento-big{grid-row:auto}
   .bento{grid-auto-rows:auto}
   .browser-body>.demo{border-right:none;border-bottom:1px solid var(--line2)}
   .feat-row,.g3,.test-grid,.price-grid{grid-template-columns:repeat(2,1fr)}
