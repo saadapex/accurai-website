@@ -9,6 +9,7 @@
     "preview": "npx serve dist"
   },
   "dependencies": {
+    "docx": "^9.7.1",
     "jsdom": "^24.1.0"
   }
 }
