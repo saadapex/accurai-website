@@ -21,18 +21,18 @@ Home services (HVAC, plumbing, roofing, electrical, restoration), education and 
 - AI Chatbot QA Checklist (PDF)
 - 75 Questions to Ask Your Business Chatbot (PDF)
 - Agentic AI Safety Checklist (PDF)
-Available at https://accurai.ca/#/resources
+Available at https://accurai.ca/resources
 
 ## Key pages
 - Home: https://accurai.ca/
-- Services: https://accurai.ca/#/services
-- Agentic AI Safety: https://accurai.ca/#/services/agentic-ai-safety
-- Pricing: https://accurai.ca/#/pricing
-- Process: https://accurai.ca/#/process
-- Blog: https://accurai.ca/#/blog
-- Resources: https://accurai.ca/#/resources
-- About: https://accurai.ca/#/about
-- Contact: https://accurai.ca/#/contact
+- Services: https://accurai.ca/services
+- Agentic AI Safety: https://accurai.ca/services/agentic-ai-safety
+- Pricing: https://accurai.ca/pricing
+- Process: https://accurai.ca/process
+- Blog: https://accurai.ca/blog
+- Resources: https://accurai.ca/resources
+- About: https://accurai.ca/about
+- Contact: https://accurai.ca/contact
 
 ## Contact
 Email: hello@accurai.ca
