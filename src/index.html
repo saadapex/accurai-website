@@ -82,6 +82,21 @@ header{position:sticky;top:0;z-index:100;padding:14px 0 0}
 .nav-links a{font-size:14px;font-weight:500;color:#3a4951;padding:8px 10px;border-radius:var(--pill);transition:.18s}
 .nav-links a:hover{color:var(--navy);background:rgba(7,59,76,.05)}
 .nav-links a.active{color:var(--navy);background:var(--ice)}
+.nav-dd{position:relative}
+.nav-dd-toggle{display:inline-flex;align-items:center;gap:5px;font-size:14px;font-weight:500;color:#3a4951;padding:8px 10px;border-radius:var(--pill);background:none;border:none;cursor:pointer;font-family:var(--font);transition:.18s}
+.nav-dd-toggle:hover,.nav-dd:focus-within .nav-dd-toggle{color:var(--navy);background:rgba(7,59,76,.05)}
+.nav-dd-toggle.active{color:var(--navy);background:var(--ice)}
+.dd-caret{width:13px;height:13px;transition:transform .2s}
+.nav-dd:hover .dd-caret,.nav-dd:focus-within .dd-caret{transform:rotate(180deg)}
+.nav-dd-menu{position:absolute;top:calc(100% + 8px);left:0;min-width:200px;background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:8px;margin:0;list-style:none;display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .18s,transform .18s,visibility .18s;z-index:100}
+.nav-dd:hover .nav-dd-menu,.nav-dd:focus-within .nav-dd-menu,.nav-dd-menu.open{opacity:1;visibility:visible;transform:translateY(0)}
+.nav-dd-menu a{display:block;padding:9px 12px;border-radius:10px;font-size:14px;color:#3a4951;white-space:nowrap}
+.nav-dd-menu a:hover{background:rgba(7,59,76,.05);color:var(--navy)}
+.nav-dd-menu a.active{background:var(--ice);color:var(--navy)}
+.mobile-open .nav-dd{width:100%}
+.mobile-open .nav-dd-toggle{width:100%;justify-content:space-between}
+.mobile-open .nav-dd-menu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:none;background:none;padding:2px 0 2px 14px;min-width:0}
+.mobile-open .dd-caret{display:none}
 .nav-cta{display:flex;align-items:center;gap:10px}
 .nav-cta .btn{padding:10px 18px;font-size:14px}
 .hamburger{display:none;background:none;border:none;cursor:pointer;width:40px;height:40px;border-radius:12px;align-items:center;justify-content:center}
@@ -546,9 +561,14 @@ footer>.container{position:relative;z-index:1}
       <li><a href="/process">Process</a></li>
       <li><a href="/industries">Industries</a></li>
       <li><a href="/about">About</a></li>
-      <li><a href="/resources">Resources</a></li>
-      <li><a href="/blog">Blog</a></li>
-      <li><a href="/faq">FAQ</a></li>
+      <li class="nav-dd">
+        <button type="button" class="nav-dd-toggle" aria-expanded="false" aria-haspopup="true">Resources <svg class="dd-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg></button>
+        <ul class="nav-dd-menu">
+          <li><a href="/resources">Guides &amp; Checklists</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/faq">FAQ</a></li>
+        </ul>
+      </li>
     </ul>
     <div class="nav-cta">
       <a href="/contact" class="btn btn-primary">Book an Audit</a>
@@ -1225,7 +1245,7 @@ else if(parts[0]==='resources')html=resourcesPage();
  if(!window.__PRERENDER&&window.__gaConsent&&typeof gtag==='function')gtag('event','page_view',{page_title:document.title,page_location:location.href,page_path:location.pathname+location.search});
  app.innerHTML=html; window.scrollTo(0,0);
  document.querySelectorAll('.nav-links a').forEach(a=>{const href=(a.getAttribute('href')||'').replace(/^\//,'');a.classList.toggle('active',(href===''&&parts.length===0)||(href!==''&&parts[0]===href.split('/')[0]));});
- el('#navbar').classList.remove('mobile-open'); el('#hamburger').classList.remove('open');
+ el('#navbar').classList.remove('mobile-open'); el('#hamburger').classList.remove('open'); document.querySelectorAll('.nav-dd-menu.open').forEach(m=>m.classList.remove('open')); const _dd=document.querySelector('.nav-dd-toggle'); if(_dd)_dd.classList.toggle('active',['resources','blog','faq'].includes(parts[0]));
  afterRender();
 }
 
@@ -1302,6 +1322,8 @@ function initToggle(){
 const _prog=document.createElement('div');_prog.id='progress';document.body.appendChild(_prog);
 window.addEventListener('scroll',()=>{const h=document.documentElement;_prog.style.width=(h.scrollTop/((h.scrollHeight-h.clientHeight)||1)*100)+'%';},{passive:true});
 el('#hamburger').addEventListener('click',()=>{el('#navbar').classList.toggle('mobile-open');el('#hamburger').classList.toggle('open');});
+document.querySelectorAll('.nav-dd-toggle').forEach(function(btn){btn.addEventListener('click',function(){var menu=btn.parentElement.querySelector('.nav-dd-menu');var open=menu.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');});});
+document.addEventListener('click',function(e){if(!(e.target.closest&&e.target.closest('.nav-dd'))){document.querySelectorAll('.nav-dd-menu.open').forEach(function(m){m.classList.remove('open');var t=m.parentElement.querySelector('.nav-dd-toggle');if(t)t.setAttribute('aria-expanded','false');});}});
 el('#yr').textContent=new Date().getFullYear();
 document.addEventListener('click',e=>{
  if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
