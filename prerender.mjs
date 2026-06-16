@@ -35,6 +35,7 @@ const dom = new JSDOM(src, {
   runScripts: 'dangerously',
   pretendToBeVisual: true,
   beforeParse(w) {
+    w.__PRERENDER = true;
     w.IntersectionObserver = class { observe() {} unobserve() {} disconnect() {} };
     w.matchMedia = () => ({ matches: false, addListener() {}, removeListener() {}, addEventListener() {}, removeEventListener() {} });
     w.scrollTo = () => {};

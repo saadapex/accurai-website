@@ -739,7 +739,7 @@ function scorecardVisual(){
  return `<div class="scorecard">
    <div class="sc-head"><div><div class="ttl">AI Accuracy Score</div><div class="biz">Sample — Northside HVAC</div></div><span class="sc-tag">Audited</span></div>
    <div class="gauge-row">
-     <div class="gauge"><svg width="108" height="108" viewBox="0 0 108 108"><circle cx="54" cy="54" r="46" fill="none" stroke="#EAF4F4" stroke-width="10"/><circle id="gaugeArc" cx="54" cy="54" r="46" fill="none" stroke="#2A9D8F" stroke-width="10" stroke-linecap="round" stroke-dasharray="289" stroke-dashoffset="289"/></svg><div class="val"><span class="num" id="gaugeNum">0</span><span class="lab">of 100</span></div></div>
+     <div class="gauge"><svg width="108" height="108" viewBox="0 0 108 108"><circle cx="54" cy="54" r="46" fill="none" stroke="#EAF4F4" stroke-width="10"/><circle id="gaugeArc" cx="54" cy="54" r="46" fill="none" stroke="#2A9D8F" stroke-width="10" stroke-linecap="round" stroke-dasharray="289" stroke-dashoffset="289"/></svg><div class="val"><span class="num" id="gaugeNum">87</span><span class="lab">of 100</span></div></div>
      <div class="gauge-meta"><div class="grade">Good, with fixes</div><p>5 issues found across pricing, service area, and escalation.</p></div>
    </div>
    <div class="sc-rows">
@@ -903,8 +903,8 @@ function home(){
            ${scoring.map(([n,d])=>`<div class="dim"><span class="di">${I.check}</span><div><b>${n}</b><span>${d}</span></div></div>`).join('')}
          </div>
        </div>
-       <div class="bento-cell statbox reveal"><div class="big"><span data-count="100">0</span></div><div class="cap">Customer-style questions per audit — from 75 to 100.</div></div>
-       <div class="bento-cell statbox dark reveal"><div class="glow-deco"></div><div class="big"><span class="u">$</span><span data-count="299">0</span></div><div class="cap">Founding-client audit. Limited spots at this price.</div></div>
+       <div class="bento-cell statbox reveal"><div class="big"><span data-count="100">100</span></div><div class="cap">Customer-style questions per audit — from 75 to 100.</div></div>
+       <div class="bento-cell statbox dark reveal"><div class="glow-deco"></div><div class="big"><span class="u">$</span><span data-count="299">299</span></div><div class="cap">Founding-client audit. Limited spots at this price.</div></div>
      </div>
    </div>
  </section>
@@ -1215,7 +1215,7 @@ function afterRender(){
  document.querySelectorAll('.reveal').forEach((r,i)=>{r.style.transitionDelay=(Math.min(i,6)*0.05)+'s';io.observe(r);});
 
  const arc=el('#gaugeArc'),num=el('#gaugeNum');
- if(arc&&num){const target=87,circ=289;const go=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){arc.style.transition='stroke-dashoffset 1.6s cubic-bezier(.2,.7,.2,1)';arc.style.strokeDashoffset=circ-(circ*target/100);let n=0;const t=setInterval(()=>{n+=2;if(n>=target){n=target;clearInterval(t);}num.textContent=n;},28);go.disconnect();}});},{threshold:.4});go.observe(arc.closest('.scorecard'));}
+ if(arc&&num){const target=87,circ=289;if(!window.__PRERENDER)num.textContent='0';const go=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){arc.style.transition='stroke-dashoffset 1.6s cubic-bezier(.2,.7,.2,1)';arc.style.strokeDashoffset=circ-(circ*target/100);let n=0;const t=setInterval(()=>{n+=2;if(n>=target){n=target;clearInterval(t);}num.textContent=n;},28);go.disconnect();}});},{threshold:.4});go.observe(arc.closest('.scorecard'));}
 
  document.querySelectorAll('.faq-q').forEach(b=>b.addEventListener('click',()=>{const item=b.parentElement,a=item.querySelector('.faq-a'),open=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight=null;});if(!open){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}}));
 
@@ -1262,7 +1262,7 @@ function initSlider(){
  ba.addEventListener('pointermove',e=>{if(e.buttons||e.pressure>0)move(e.clientX);});
 }
 function initCounters(){
- const els=document.querySelectorAll('[data-count]');if(!els.length)return;
+ const els=document.querySelectorAll('[data-count]');if(!els.length)return; if(!window.__PRERENDER)els.forEach(x=>x.textContent='0');
  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const target=+e.target.dataset.count,dur=1150,t0=performance.now();const tick=now=>{const p=Math.min(1,(now-t0)/dur);e.target.textContent=Math.round(target*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(tick);};requestAnimationFrame(tick);io.unobserve(e.target);}});},{threshold:.6});
  els.forEach(x=>io.observe(x));
 }
