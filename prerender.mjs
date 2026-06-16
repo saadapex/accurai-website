@@ -72,6 +72,11 @@ for (const route of routes) {
   }
 }
 
+// --- 404 page (Vercel serves this with a 404 status for unmatched paths) ---
+dom.reconfigure({ url: BASE + '/__not_found__' });
+w.router();
+fs.writeFileSync(path.join(OUT, '404.html'), '<!DOCTYPE html>\n' + w.document.documentElement.outerHTML);
+
 // --- sitemap ---
 const today = new Date().toISOString().slice(0, 10);
 const priority = (r) => (r === '/' ? '1.0' : (r.split('/').length > 2 ? '0.7' : '0.8'));
